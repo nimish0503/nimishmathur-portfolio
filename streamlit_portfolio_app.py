@@ -452,4 +452,4 @@ elif "Technical Skills" in section:
 # --------------------------------------------------
 # Footer
 # --------------------------------------------------
-st.markdown("<p style='text-align:center;color:#6d7781;margin-top:24px;'>Built with ❤️ using Streamlit</p>", unsafe_allow_html=True)
+
