@@ -1,4 +1,4 @@
-# Nimish Mathur — Streamlit Portfolio (Final Version with Work Experience Added)
+# Nimish Mathur — Streamlit Portfolio (Updated with Full Info)
 
 import os
 import streamlit as st
@@ -113,8 +113,10 @@ def render_intro():
     st.markdown("""
     <div class='nm-card' style='padding:32px;'>
       <h1>👋 Hey, I'm <span style='color:#00d1b2;'>Nimish Mathur</span></h1>
-      <p>🚀 I’m a Data Science & AI enthusiast pursuing my <b>M.Sc. in Applied Data Science & Analytics</b> at SRH University Heidelberg (Germany). 
-      I love building scalable data systems, automating analytics, and developing intelligent models that turn data into impact.</p>
+      <p>🚀 I'm a Data Science & AI enthusiast pursuing my <b>M.Sc. in Applied Data Science & Analytics</b> at SRH University Heidelberg (Germany). 
+      I love building scalable data systems, automating analytics, and developing intelligent models that turn data into impact.
+      Currently writing my thesis at <b>Omnisent Sports</b>, building a data-driven sports investment intelligence framework integrating 
+      athlete performance, social capital, and commercial valuation using agentic AI and RAG workflows.</p>
     """, unsafe_allow_html=True)
     pill_row(["💻 Data Engineering", "🤖 Machine Learning", "📊 Data Visualization", "☁️ Cloud Computing", "🧭 AI Engineering"])
     st.markdown("<hr class='hr-soft'/>", unsafe_allow_html=True)
@@ -124,6 +126,8 @@ def render_intro():
     - 💡 Passionate about AI Agent Frameworks, Environmental Analytics & Process Mining  
     - ⚙️ Skilled in Python, SQL, Airflow, GCP, LangChain, Neo4j  
     - 🧠 Exploring the balance between AI Ethics and Technical Design
+    - 🏅 NVIDIA Certified in Deep Learning & Prompt Engineering
+    - 🌍 German A2 | English C1
     """, unsafe_allow_html=True)
     st.markdown("""
     <p style='text-align:center; color:#9aa4ad; margin-top:30px;'>✨ "Let's connect, create, and push the boundaries of Data & AI together." ✨</p>
@@ -135,14 +139,51 @@ def render_intro():
 # --------------------------------------------------
 def render_experience():
     st.header("💼 Work Experience")
+
+    # Omnisent — Thesis
+    st.markdown("""
+    <div class='nm-card'>
+      <h3>🏟️ Omnisent Sports — Thesis Student</h3>
+      <p>📍 Heidelberg, Germany | Mar 2026 – Sep 2026</p>
+      <ul>
+        <li>Developing a data-driven <b>sports investment intelligence framework</b> integrating athlete performance data, social capital indicators, and commercial valuation to reduce fragmentation across scouting, sponsorship, and investment decision-making.</li>
+        <li>Designing an exploratory <b>Social Performance Index (SPI)</b> to quantify athlete social and commercial value alongside on-field metrics, enabling holistic athlete valuation across sports, leagues, and competition tiers.</li>
+        <li>Proposing an AI-assisted analytics pipeline covering data ingestion, athlete scoring, normalization, and matching support using concepts from <b>agentic AI, retrieval-augmented workflows</b>, and automated sports analytics.</li>
+        <li>Exploring algorithmic matching frameworks using <b>multi-criteria decision analysis</b> and stable matching theory for club-player, brand-athlete, and investor-club recommendations with explainable decision outputs.</li>
+      </ul>
+    </div>
+    """, unsafe_allow_html=True)
+    pill_row(["Python", "Agentic AI", "RAG", "LangChain", "Multi-Criteria Decision Analysis", "Stable Matching", "NLP", "PostgreSQL"])
+
+    st.markdown("<br/>", unsafe_allow_html=True)
+
+    # Omnisent — Data Science Intern
+    st.markdown("""
+    <div class='nm-card'>
+      <h3>🏟️ Omnisent Sports — Data Science Intern</h3>
+      <p>📍 Germany (Remote) | Nov 2025 – Mar 2026</p>
+      <ul>
+        <li>Built AI-powered <b>sentiment analysis pipelines</b> using pretrained NLP models (HuggingFace, RoBERTa) for sports media and social data.</li>
+        <li>Developed end-to-end <b>data pipelines</b> using Python, SQL, and PostgreSQL for analytics-ready datasets.</li>
+        <li>Designed and contributed to <b>Streamlit dashboards</b> for internal analytics and reporting.</li>
+        <li>Collaborated with product and engineering teams to improve data quality, schema design, and business alignment.</li>
+      </ul>
+    </div>
+    """, unsafe_allow_html=True)
+    pill_row(["Python", "HuggingFace", "RoBERTa", "SQL", "PostgreSQL", "Streamlit", "NLP"])
+
+    st.markdown("<br/>", unsafe_allow_html=True)
+
+    # CRISIL
     st.markdown("""
     <div class='nm-card'>
       <h3>🏢 CRISIL Limited — Database Administrator Intern</h3>
       <p>📍 Mumbai, India | Dec 2023 – Jun 2024</p>
       <ul>
         <li>Automated KPI and compliance reports using Python (Pandas, SQLAlchemy), improving efficiency by <b>40%</b>.</li>
-        <li>Designed and optimized ETL pipelines for audit and performance data using <b>Airflow</b> and <b>PostgreSQL</b>.</li>
+        <li>Designed and optimized ETL pipelines for audit and performance data using <b>Airflow</b> and <b>PostgreSQL</b>, improving performance by <b>30%</b>.</li>
         <li>Created <b>Power BI dashboards</b> and data validation scripts for high-stakes business reporting.</li>
+        <li>Supported database migration projects with <b>zero downtime</b> and strong QA alignment.</li>
         <li>Authored structured technical documentation, improving reproducibility and QA reliability.</li>
       </ul>
     </div>
@@ -170,33 +211,39 @@ def render_projects():
 
         st.markdown("""
         <div class='nm-card'>
-        <h3>🧠 AI-Driven Agents for Algae Management</h3>
-        <p><b>Goal:</b> Predict harmful algal blooms using AI and satellite data.</p>
-        <p><b>What I Did:</b> Built a multi-agent framework (HOMOGEN, CALIBRO, VISIOS, PREDIKT) integrating Sentinel-2 and ERA5 data with Transformer-based data fusion.</p>
-        <p><b>Result:</b> Improved data processing efficiency by 80% and achieved 94% model accuracy.</p>
+        <h3>🧠 AI-Driven Multi-Agent System for Algae Management (HAB)</h3>
+        <p><b>Goal:</b> Predict and manage Harmful Algal Blooms (HABs) in German surface waters using AI and satellite data.</p>
+        <p><b>What I Did:</b> Designed and deployed a multi-agent framework with four intelligent agents — 
+        <b>HOMOGEN</b> (data harmonization), <b>CALIBRO</b> (satellite calibration), <b>PREDIKT</b> (bloom forecasting), 
+        and <b>VISIOS</b> (deep learning-based image validation). Integrated <b>Sentinel-2, Landsat-9, MODIS</b>, and 
+        in-situ sensor data within a harmonized <b>SWIM (Surface Water Information Management)</b> framework. 
+        Built a modular, scalable agentic architecture enabling independent deployment, inter-agent communication, 
+        and fault-tolerant data pipelines.</p>
+        <p><b>Result:</b> Improved data processing efficiency by 80%, achieved <b>87–94% model accuracy</b>, and 
+        delivered research insights for climate resilience and AI-driven environmental policy support.</p>
         </div>
         """, unsafe_allow_html=True)
-        pill_row(["Python", "Transformers", "CNN", "REST API", "Satellite Data"])
+        pill_row(["Python", "TensorFlow", "Transformers", "CNN", "LangChain", "REST API", "Sentinel-2", "Landsat-9", "MODIS", "Satellite Data", "Multi-Agent AI"])
 
         st.markdown("""
         <div class='nm-card'>
         <h3>🧩 Data Integration Pipeline for Knowledge Graphs</h3>
         <p><b>Goal:</b> Automate semantic data ingestion and validation.</p>
-        <p><b>What I Did:</b> Built ETL pipeline with Python, Airflow, and Neo4j; schema alignment via RDF/SPARQL with monitoring and validation.</p>
-        <p><b>Result:</b> Delivered robust ETL ensuring high data integrity for semantic AI systems.</p>
+        <p><b>What I Did:</b> Built ETL pipeline with Python, Airflow, and Neo4j; schema alignment via RDF/SPARQL with monitoring and validation. Built GNN prototypes (PyTorch Geometric) and integrated RDF/Neo4j into RAG pipelines.</p>
+        <p><b>Result:</b> Delivered robust ETL ensuring high data integrity for semantic AI systems. Improved retrieval by 20% and enhanced interpretability in graph reasoning tasks.</p>
         </div>
         """, unsafe_allow_html=True)
-        pill_row(["Airflow", "Neo4j", "RDF", "SPARQL", "ETL"])
+        pill_row(["Airflow", "Neo4j", "RDF", "SPARQL", "ETL", "PyTorch Geometric", "GNN", "RAG"])
 
         st.markdown("""
         <div class='nm-card'>
         <h3>💬 TruHealth — Mental Health Analytics</h3>
         <p><b>Goal:</b> Analyze online discussions to understand mental-health sentiment.</p>
-        <p><b>What I Did:</b> Built NLP pipeline (TF-IDF, Logistic Regression, Naive Bayes) and integrated Flask + Power BI dashboard.</p>
+        <p><b>What I Did:</b> Built NLP pipeline (TF-IDF, Logistic Regression, Naive Bayes) and integrated Flask + Power BI dashboard with MongoDB backend.</p>
         <p><b>Result:</b> Achieved 85% accuracy and clear sentiment patterns supporting awareness campaigns.</p>
         </div>
         """, unsafe_allow_html=True)
-        pill_row(["NLP", "Flask", "Power BI", "TF-IDF", "Sentiment Analysis"])
+        pill_row(["NLP", "Flask", "Power BI", "TF-IDF", "MongoDB", "Sentiment Analysis"])
 
         st.markdown("""
         <div class='nm-card'>
@@ -258,7 +305,7 @@ def render_projects():
         </div>
         """, unsafe_allow_html=True)
         pill_row(["pandas", "scikit-learn", "Seaborn", "Recommender Systems"])
-        
+
 # --------------------------------------------------
 # Technical Skills Section (Final Polished Version)
 # --------------------------------------------------
@@ -271,7 +318,7 @@ def render_skills():
       <h3>💻 Programming & Scripting</h3>
     </div>
     """, unsafe_allow_html=True)
-    pill_row(["Python", "SQL", "R", "Bash", "JavaScript (basic)"])
+    pill_row(["Python", "SQL", "R", "Bash", "JavaScript", "TypeScript"])
 
     # Data Engineering & Pipelines
     st.markdown("""
@@ -287,7 +334,7 @@ def render_skills():
       <h3>☁️ Cloud & DevOps</h3>
     </div>
     """, unsafe_allow_html=True)
-    pill_row(["GCP", "Azure", "AWS (S3, EC2)", "BigQuery", "Pub/Sub", "Docker", "Kubernetes", "GitHub Actions", "CI/CD", "Linux Server Management"])
+    pill_row(["GCP", "Azure", "AWS (S3, EC2, Lambda)", "BigQuery", "Pub/Sub", "Docker", "Kubernetes", "GitHub Actions", "CI/CD", "Linux Server Management"])
 
     # Machine & Deep Learning
     st.markdown("""
@@ -295,7 +342,7 @@ def render_skills():
       <h3>🤖 Machine & Deep Learning</h3>
     </div>
     """, unsafe_allow_html=True)
-    pill_row(["Scikit-learn", "TensorFlow", "PyTorch", "XGBoost", "LightGBM", "LSTM / RNNs", "Transformers", "CNN", "Grad-CAM", "SHAP", "LIME"])
+    pill_row(["Scikit-learn", "TensorFlow", "PyTorch", "PyTorch Geometric", "XGBoost", "LightGBM", "LSTM / RNNs", "Transformers", "CNN", "GNN", "Grad-CAM", "SHAP", "LIME"])
 
     # NLP & LLM Ecosystem
     st.markdown("""
@@ -303,7 +350,7 @@ def render_skills():
       <h3>🧠 NLP & LLM Ecosystem</h3>
     </div>
     """, unsafe_allow_html=True)
-    pill_row(["Hugging Face", "Embeddings", "Sentence Transformers", "Text Summarization", "LLM Fine-Tuning", "LangSmith", "Prompt Templates"])
+    pill_row(["Hugging Face", "RoBERTa", "Sentence Transformers", "Embeddings", "Text Summarization", "LLM Fine-Tuning", "LangSmith", "Prompt Templates", "Prompt Engineering"])
 
     # Agentic & Generative AI
     st.markdown("""
@@ -311,15 +358,15 @@ def render_skills():
       <h3>🧩 Agentic & Generative AI</h3>
     </div>
     """, unsafe_allow_html=True)
-    pill_row(["LangChain", "OpenAI API", "LlamaIndex", "CrewAI", "Multi-Agent Systems", "Event Bus", "RAG", "FAISS", "Chroma", "Prompt Engineering"])
+    pill_row(["LangChain", "LangGraph", "OpenAI API", "LlamaIndex", "CrewAI", "Multi-Agent Systems", "Event Bus", "RAG", "FAISS", "Chroma", "Prompt Engineering"])
 
     # Databases & Storage
     st.markdown("""
     <div class='nm-card'>
-      <h3>🧩 Databases & Storage</h3>
+      <h3>🗄️ Databases & Storage</h3>
     </div>
     """, unsafe_allow_html=True)
-    pill_row(["PostgreSQL", "MySQL", "MongoDB", "BigQuery", "SQLite", "ElasticSearch", "Snowflake", "Cloud Buckets"])
+    pill_row(["PostgreSQL", "MySQL", "MongoDB", "Neo4j", "BigQuery", "SQLite", "ElasticSearch", "Snowflake", "Cloud Buckets"])
 
     # Visualization & BI
     st.markdown("""
@@ -327,7 +374,7 @@ def render_skills():
       <h3>📊 Visualization & BI</h3>
     </div>
     """, unsafe_allow_html=True)
-    pill_row(["Power BI", "Tableau", "Streamlit", "Looker Studio", "Matplotlib", "Seaborn", "Plotly", "Altair"])
+    pill_row(["Power BI", "Tableau", "SAP Analytics Cloud", "Streamlit", "Looker Studio", "Matplotlib", "Seaborn", "Plotly", "Altair"])
 
     # Tools, Collaboration & Analytics
     st.markdown("""
@@ -335,7 +382,7 @@ def render_skills():
       <h3>🧰 Tools, Collaboration & Analytics</h3>
     </div>
     """, unsafe_allow_html=True)
-    pill_row(["Excel VBA", "Git", "GitHub", "Jira", "Confluence", "Notion", "Miro", "Slack Automation", "Postman"])
+    pill_row(["Excel (Power Query, PivotTables)", "Excel VBA", "Git", "GitHub", "Jira", "Confluence", "Notion", "Miro", "Slack Automation", "Postman", "Playwright", "Cypress", "Jest"])
 
 # --------------------------------------------------
 # Education (Enhanced with Skills Learned)
@@ -365,12 +412,12 @@ def render_education():
     """, unsafe_allow_html=True)
     pill_row(["Python", "SQL", "Flask", "Power BI", "TensorFlow", "Computer Vision", "Team Leadership"])
 
-   # FH St. Pölten — Erasmus+ BIP
+    # FH St. Pölten — Erasmus+ BIP
     st.markdown("""
     <div class='nm-card'>
       <h3>🇦🇹 FH St. Pölten — Erasmus+ BIP</h3>
-      <p><b>Blended Intensive Programme — Trends in Research and Innovation in the Context of Computer Science (2025)</b></p>
-      <p>Explored the theme <b>“The Future of Coding”</b> through hands-on reinforcement learning for autonomous driving 
+      <p><b>Blended Intensive Programme — Trends in Research and Innovation in the Context of Computer Science (May–Jun 2025)</b></p>
+      <p>Explored the theme <b>"The Future of Coding"</b> through hands-on reinforcement learning for autonomous driving 
       using <b>AWS DeepRacer</b> and cloud-based simulation environments.</p>
       <p>Worked collaboratively with international teams on AI innovation and ethical frameworks for intelligent systems.</p>
     </div>
@@ -378,7 +425,7 @@ def render_education():
     pill_row(["Reinforcement Learning", "AWS DeepRacer", "AWS Cloud", "AI Ethics", "Autonomous Systems", "Collaborative Research"])
 
 # --------------------------------------------------
-# Certifications & Awards (Fixed and Polished)
+# Certifications & Awards (Updated with Verified Certificates)
 # --------------------------------------------------
 def render_certs_awards():
     st.header("🏅 Certifications & Awards")
@@ -387,20 +434,77 @@ def render_certs_awards():
     st.markdown("""
     <div class='nm-card'>
       <h4>🎓 Certifications</h4>
-      <ul style='line-height:1.6;'>
-        <li><b>IBM Data Science Professional Certificate (Coursera)</b> — Completed a full data science workflow including data analysis, visualization, and predictive modeling using Python (Pandas, Matplotlib, scikit-learn). Built a capstone project predicting housing prices.</li>
-        <li><b>Machine Learning with Python (Coursera)</b> — Implemented regression, classification, and clustering models using scikit-learn. Learned model evaluation, tuning, and pipeline automation.</li>
-        <li><b>Building ETL Pipelines with Apache Airflow (Udemy)</b> — Created DAGs, custom operators, and scheduled ETL workflows in Airflow for real-time analytics automation.</li>        
-        <li><b>Generative AI Masterclass (Udemy)</b> — Explored text and image generation using OpenAI APIs, Hugging Face, and LangChain. Developed prompt-based chatbots and summarization tools.</li>       
-        <li><b>Prompt Engineering (Udemy)</b> — Learned advanced prompt techniques for reasoning, structured outputs, and API-integrated LLM workflows.</li>
-        <li><b>Power BI Desktop – Dashboards & Data Analytics (Udemy)</b> — Created Power BI dashboards with DAX measures, Power Query transformations, and automated KPI tracking.</li>
-        <li><b>SAP Analytics Cloud (SAP Learning)</b> — Designed interactive reports and dashboards integrating SAP datasets with live modeling and visualization features.</li>        
-        <li><b>Google Data Analytics Professional Certificate (Udemy)</b> — Applied SQL and visualization techniques to analyze public datasets. Created business dashboards for trend insights.</li>
+      <ul style='line-height:1.9;'>
+
+        <li><b>Building LLM Applications With Prompt Engineering</b> — NVIDIA <span style='color:#9aa4ad;font-size:12px;'>| Nov 2025</span><br/>
+        <span style='font-size:13px;'>Credential ID: g-2IlRd1RO6ZWcYuaAXLtA</span></li>
+
+        <li><b>Fundamentals of Deep Learning</b> — NVIDIA <span style='color:#9aa4ad;font-size:12px;'>| Oct 2025</span><br/>
+        <span style='font-size:13px;'>Credential ID: 1tO0Ys3ITkGJkXM3sgBKrQ | Skills: Deep Learning</span></li>
+
+        <li><b>Python for Data Science, AI & Development</b> — IBM / Coursera <span style='color:#9aa4ad;font-size:12px;'>| Jan 2025</span></li>
+
+        <li><b>Introduction to Data Engineering</b> — IBM / Coursera <span style='color:#9aa4ad;font-size:12px;'>| Jan 2025</span></li>
+
+        <li><b>SAS Certified Specialist: Visual Business Analytics Using SAS Viya</b> — SAS <span style='color:#9aa4ad;font-size:12px;'>| Nov 2024 · Expires Nov 2029</span></li>
+
+        <li><b>SAS Visual Analytics 2 for SAS Viya: Advanced</b> — SAS <span style='color:#9aa4ad;font-size:12px;'>| Nov 2024</span></li>
+
+        <li><b>SAS Visual Analytics 1 for SAS Viya: Basics</b> — SAS <span style='color:#9aa4ad;font-size:12px;'>| Nov 2024</span></li>
+
+        <li><b>Intermediate Python for Developers</b> — DataCamp <span style='color:#9aa4ad;font-size:12px;'>| Oct 2024</span><br/>
+        <span style='font-size:13px;'>Skills: Programming, Python</span></li>
+
+        <li><b>Data Science Methodology</b> — IBM / Coursera <span style='color:#9aa4ad;font-size:12px;'>| Aug 2024</span></li>
+
+        <li><b>Tools for Data Science</b> — IBM / Coursera <span style='color:#9aa4ad;font-size:12px;'>| Aug 2024</span></li>
+
+        <li><b>What is Data Science?</b> — IBM / Coursera <span style='color:#9aa4ad;font-size:12px;'>| Jul 2024</span></li>
+
+        <li><b>Foundations: Data, Data, Everywhere</b> — Google / Coursera <span style='color:#9aa4ad;font-size:12px;'>| May 2024</span></li>
+
+        <li><b>Google Data Analytics Capstone: Complete a Case Study</b> — Google / Coursera <span style='color:#9aa4ad;font-size:12px;'>| May 2024</span></li>
+
+        <li><b>Programming for Everybody (Getting Started with Python)</b> — University of Michigan / Coursera <span style='color:#9aa4ad;font-size:12px;'>| Mar 2024</span></li>
+
       </ul>
     </div>
     """, unsafe_allow_html=True)
 
-    pill_row(["Python", "TensorFlow", "scikit-learn", "Airflow", "dbt", "BigQuery", "Vertex AI", "LangChain", "AWS", "Power BI", "Tableau", "SAP SAC"])
+    pill_row(["NVIDIA", "IBM", "Google", "SAS", "DataCamp", "University of Michigan", "Coursera"])
+
+    st.markdown("<br/>", unsafe_allow_html=True)
+
+    # Udemy Courses
+    st.markdown("""
+    <div class='nm-card'>
+      <h4>📚 Courses & Self-Learning (Udemy)</h4>
+      <ul style='line-height:1.9;'>
+        <li><b>Agentic AI Full-Stack Masterclass: RAG, MCP & AI Agents</b> — Nikhil Agarwal</li>
+        <li><b>Complete Agentic AI Bootcamp With LangGraph and Langchain</b> — KRISHAI Technologies / Krish Naik</li>
+        <li><b>Data Analytics Masters 2026: From Basics to Advanced</b> — Dr. Satyajit Pattnaik</li>
+        <li><b>AWS Certified Data Engineer Associate 2026 – Hands On!</b> — Sundog Education / Frank Kane</li>
+        <li><b>Statistics for Data Science and Business Analysis</b> — 365 Careers</li>
+        <li><b>Python Mega Course: Build 20 Real-World Apps and AI Agents</b> — Ardit Sulce (600,000+ Students)</li>
+        <li><b>Microsoft Power BI Desktop – Data Analytics with Dashboards</b> — Charlie Walker</li>
+        <li><b>Mathematical Foundations of Machine Learning</b> — Dr Jon Krohn / SuperDataScience Team</li>
+        <li><b>The Data Science Course: Complete Data Science Bootcamp 2026</b> — 365 Careers</li>
+        <li><b>Become a Probability & Statistics Master</b> — Krista King</li>
+        <li><b>The Complete Digital Marketing Course – 12 Courses in 1</b> — Rob Percival / Daragh Walsh</li>
+        <li><b>German for You A1/A2: A German Language Course for Beginners</b> — Esther Hartwig</li>
+        <li><b>Practical GenAI: Basics, Tools, Use Cases, Ethics, Future</b> — Yash Thakker</li>
+        <li><b>The Complete Personal Finance Course: Save, Protect, Make More</b> — Chris Haroun</li>
+        <li><b>The Complete Full-Stack Web Development Bootcamp</b> — Dr. Angela Yu</li>
+        <li><b>Complete Investing Course (Stocks, ETFs, Index/Mutual Funds)</b> — Mohsen Hassan / bloom team</li>
+        <li><b>Speak Like a Pro: Public Speaking for Professionals</b> — Jennifer Hennings</li>
+        <li><b>MongoDB – The Complete Developer's Guide</b> — Academind / Maximilian Schwarzmüller</li>
+        <li><b>FULL STACK JAVA DEV: Java + JSP + Spring + Boot + JS + React</b> — StudyEasy Organization / Chaand Sheikh</li>
+      </ul>
+    </div>
+    """, unsafe_allow_html=True)
+    pill_row(["Python", "TensorFlow", "scikit-learn", "Airflow", "LangChain", "LangGraph", "RAG", "AWS", "Power BI", "Tableau", "SAP SAC", "MongoDB", "Full-Stack", "GenAI"])
+
+    st.markdown("<br/>", unsafe_allow_html=True)
 
     # Awards
     st.markdown("""
@@ -426,7 +530,10 @@ def render_contact():
       <ul>
         <li>🔗 LinkedIn: <a href="https://www.linkedin.com/in/nimish-mathur050302" target="_blank">linkedin.com/in/nimish-mathur050302</a></li>
         <li>💻 GitHub: <a href="https://github.com/nimish0503" target="_blank">github.com/nimish0503</a></li>
-        <li>📧 Email: nimish050302@gmail.com</li>
+        <li>📧 Email: nimish.mathur0503@gmail.com</li>
+        <li>📱 Phone: +49 15257173184</li>
+        <li>📍 Location: Mannheim, Germany</li>
+        <li>🌐 Portfolio: <a href="https://nimishportfolio0503.streamlit.app" target="_blank">nimishportfolio0503.streamlit.app</a></li>
       </ul>
     </div>
     """, unsafe_allow_html=True)
@@ -452,4 +559,3 @@ elif "Technical Skills" in section:
 # --------------------------------------------------
 # Footer
 # --------------------------------------------------
-
