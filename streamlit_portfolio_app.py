@@ -427,96 +427,103 @@ def render_education():
 # --------------------------------------------------
 # Certifications & Awards (Updated with Verified Certificates)
 # --------------------------------------------------
+def cert_item(title, issuer, date, credential_id=None, skills=None):
+    """Render a single certification row cleanly."""
+    lines = [f"**{title}**  \n{issuer}"]
+    meta = []
+    if date:
+        meta.append(date)
+    if credential_id:
+        meta.append(f"ID: `{credential_id}`")
+    if skills:
+        meta.append(f"Skills: {skills}")
+    if meta:
+        lines.append("  \n" + " · ".join(meta))
+    st.markdown("\n".join(lines))
+    st.markdown("<hr class='hr-soft'/>", unsafe_allow_html=True)
+
 def render_certs_awards():
     st.header("🏅 Certifications & Awards")
 
-    # Certifications
-    st.markdown("""
-    <div class='nm-card'>
-      <h4>🎓 Certifications</h4>
-      <ul style='line-height:1.9;'>
+    # --- Certifications ---
+    st.markdown("<div class='nm-card'>", unsafe_allow_html=True)
+    st.markdown("#### 🎓 Certifications")
 
-        <li><b>Building LLM Applications With Prompt Engineering</b> — NVIDIA <span style='color:#9aa4ad;font-size:12px;'>| Nov 2025</span><br/>
-        <span style='font-size:13px;'>Credential ID: g-2IlRd1RO6ZWcYuaAXLtA</span></li>
+    certs = [
+        ("Building LLM Applications With Prompt Engineering", "NVIDIA", "Nov 2025", "g-2IlRd1RO6ZWcYuaAXLtA", None),
+        ("Fundamentals of Deep Learning", "NVIDIA", "Oct 2025", "1tO0Ys3ITkGJkXM3sgBKrQ", "Deep Learning"),
+        ("Python for Data Science, AI & Development", "IBM / Coursera", "Jan 2025", None, None),
+        ("Introduction to Data Engineering", "IBM / Coursera", "Jan 2025", None, None),
+        ("SAS Certified Specialist: Visual Business Analytics Using SAS Viya", "SAS", "Nov 2024 · Expires Nov 2029", None, None),
+        ("SAS Visual Analytics 2 for SAS Viya: Advanced", "SAS", "Nov 2024", None, None),
+        ("SAS Visual Analytics 1 for SAS Viya: Basics", "SAS", "Nov 2024", None, None),
+        ("Intermediate Python for Developers", "DataCamp", "Oct 2024", None, "Programming, Python"),
+        ("Data Science Methodology", "IBM / Coursera", "Aug 2024", None, None),
+        ("Tools for Data Science", "IBM / Coursera", "Aug 2024", None, None),
+        ("What is Data Science?", "IBM / Coursera", "Jul 2024", None, None),
+        ("Foundations: Data, Data, Everywhere", "Google / Coursera", "May 2024", None, None),
+        ("Google Data Analytics Capstone: Complete a Case Study", "Google / Coursera", "May 2024", None, None),
+        ("Programming for Everybody (Getting Started with Python)", "University of Michigan / Coursera", "Mar 2024", None, None),
+    ]
 
-        <li><b>Fundamentals of Deep Learning</b> — NVIDIA <span style='color:#9aa4ad;font-size:12px;'>| Oct 2025</span><br/>
-        <span style='font-size:13px;'>Credential ID: 1tO0Ys3ITkGJkXM3sgBKrQ | Skills: Deep Learning</span></li>
+    for title, issuer, date, cred_id, skills in certs:
+        cert_item(title, issuer, date, cred_id, skills)
 
-        <li><b>Python for Data Science, AI & Development</b> — IBM / Coursera <span style='color:#9aa4ad;font-size:12px;'>| Jan 2025</span></li>
-
-        <li><b>Introduction to Data Engineering</b> — IBM / Coursera <span style='color:#9aa4ad;font-size:12px;'>| Jan 2025</span></li>
-
-        <li><b>SAS Certified Specialist: Visual Business Analytics Using SAS Viya</b> — SAS <span style='color:#9aa4ad;font-size:12px;'>| Nov 2024 · Expires Nov 2029</span></li>
-
-        <li><b>SAS Visual Analytics 2 for SAS Viya: Advanced</b> — SAS <span style='color:#9aa4ad;font-size:12px;'>| Nov 2024</span></li>
-
-        <li><b>SAS Visual Analytics 1 for SAS Viya: Basics</b> — SAS <span style='color:#9aa4ad;font-size:12px;'>| Nov 2024</span></li>
-
-        <li><b>Intermediate Python for Developers</b> — DataCamp <span style='color:#9aa4ad;font-size:12px;'>| Oct 2024</span><br/>
-        <span style='font-size:13px;'>Skills: Programming, Python</span></li>
-
-        <li><b>Data Science Methodology</b> — IBM / Coursera <span style='color:#9aa4ad;font-size:12px;'>| Aug 2024</span></li>
-
-        <li><b>Tools for Data Science</b> — IBM / Coursera <span style='color:#9aa4ad;font-size:12px;'>| Aug 2024</span></li>
-
-        <li><b>What is Data Science?</b> — IBM / Coursera <span style='color:#9aa4ad;font-size:12px;'>| Jul 2024</span></li>
-
-        <li><b>Foundations: Data, Data, Everywhere</b> — Google / Coursera <span style='color:#9aa4ad;font-size:12px;'>| May 2024</span></li>
-
-        <li><b>Google Data Analytics Capstone: Complete a Case Study</b> — Google / Coursera <span style='color:#9aa4ad;font-size:12px;'>| May 2024</span></li>
-
-        <li><b>Programming for Everybody (Getting Started with Python)</b> — University of Michigan / Coursera <span style='color:#9aa4ad;font-size:12px;'>| Mar 2024</span></li>
-
-      </ul>
-    </div>
-    """, unsafe_allow_html=True)
-
+    st.markdown("</div>", unsafe_allow_html=True)
     pill_row(["NVIDIA", "IBM", "Google", "SAS", "DataCamp", "University of Michigan", "Coursera"])
 
     st.markdown("<br/>", unsafe_allow_html=True)
 
-    # Udemy Courses
-    st.markdown("""
-    <div class='nm-card'>
-      <h4>📚 Courses & Self-Learning (Udemy)</h4>
-      <ul style='line-height:1.9;'>
-        <li><b>Agentic AI Full-Stack Masterclass: RAG, MCP & AI Agents</b> — Nikhil Agarwal</li>
-        <li><b>Complete Agentic AI Bootcamp With LangGraph and Langchain</b> — KRISHAI Technologies / Krish Naik</li>
-        <li><b>Data Analytics Masters 2026: From Basics to Advanced</b> — Dr. Satyajit Pattnaik</li>
-        <li><b>AWS Certified Data Engineer Associate 2026 – Hands On!</b> — Sundog Education / Frank Kane</li>
-        <li><b>Statistics for Data Science and Business Analysis</b> — 365 Careers</li>
-        <li><b>Python Mega Course: Build 20 Real-World Apps and AI Agents</b> — Ardit Sulce (600,000+ Students)</li>
-        <li><b>Microsoft Power BI Desktop – Data Analytics with Dashboards</b> — Charlie Walker</li>
-        <li><b>Mathematical Foundations of Machine Learning</b> — Dr Jon Krohn / SuperDataScience Team</li>
-        <li><b>The Data Science Course: Complete Data Science Bootcamp 2026</b> — 365 Careers</li>
-        <li><b>Become a Probability & Statistics Master</b> — Krista King</li>
-        <li><b>The Complete Digital Marketing Course – 12 Courses in 1</b> — Rob Percival / Daragh Walsh</li>
-        <li><b>German for You A1/A2: A German Language Course for Beginners</b> — Esther Hartwig</li>
-        <li><b>Practical GenAI: Basics, Tools, Use Cases, Ethics, Future</b> — Yash Thakker</li>
-        <li><b>The Complete Personal Finance Course: Save, Protect, Make More</b> — Chris Haroun</li>
-        <li><b>The Complete Full-Stack Web Development Bootcamp</b> — Dr. Angela Yu</li>
-        <li><b>Complete Investing Course (Stocks, ETFs, Index/Mutual Funds)</b> — Mohsen Hassan / bloom team</li>
-        <li><b>Speak Like a Pro: Public Speaking for Professionals</b> — Jennifer Hennings</li>
-        <li><b>MongoDB – The Complete Developer's Guide</b> — Academind / Maximilian Schwarzmüller</li>
-        <li><b>FULL STACK JAVA DEV: Java + JSP + Spring + Boot + JS + React</b> — StudyEasy Organization / Chaand Sheikh</li>
-      </ul>
-    </div>
-    """, unsafe_allow_html=True)
+    # --- Udemy Courses ---
+    st.markdown("<div class='nm-card'>", unsafe_allow_html=True)
+    st.markdown("#### 📚 Courses & Self-Learning (Udemy)")
+
+    udemy_courses = [
+        ("Agentic AI Full-Stack Masterclass: RAG, MCP & AI Agents", "Nikhil Agarwal"),
+        ("Complete Agentic AI Bootcamp With LangGraph and Langchain", "KRISHAI Technologies / Krish Naik"),
+        ("Data Analytics Masters 2026: From Basics to Advanced", "Dr. Satyajit Pattnaik"),
+        ("AWS Certified Data Engineer Associate 2026 – Hands On!", "Sundog Education / Frank Kane"),
+        ("Statistics for Data Science and Business Analysis", "365 Careers"),
+        ("Python Mega Course: Build 20 Real-World Apps and AI Agents", "Ardit Sulce (600,000+ Students)"),
+        ("Microsoft Power BI Desktop – Data Analytics with Dashboards", "Charlie Walker"),
+        ("Mathematical Foundations of Machine Learning", "Dr Jon Krohn / SuperDataScience Team"),
+        ("The Data Science Course: Complete Data Science Bootcamp 2026", "365 Careers"),
+        ("Become a Probability & Statistics Master", "Krista King"),
+        ("The Complete Digital Marketing Course – 12 Courses in 1", "Rob Percival / Daragh Walsh"),
+        ("German for You A1/A2: A German Language Course for Beginners", "Esther Hartwig"),
+        ("Practical GenAI: Basics, Tools, Use Cases, Ethics, Future", "Yash Thakker"),
+        ("The Complete Personal Finance Course: Save, Protect, Make More", "Chris Haroun"),
+        ("The Complete Full-Stack Web Development Bootcamp", "Dr. Angela Yu"),
+        ("Complete Investing Course (Stocks, ETFs, Index/Mutual Funds)", "Mohsen Hassan / bloom team"),
+        ("Speak Like a Pro: Public Speaking for Professionals", "Jennifer Hennings"),
+        ("MongoDB – The Complete Developer's Guide", "Academind / Maximilian Schwarzmüller"),
+        ("FULL STACK JAVA DEV: Java + JSP + Spring + Boot + JS + React", "StudyEasy Organization / Chaand Sheikh"),
+    ]
+
+    for title, instructor in udemy_courses:
+        st.markdown(f"**{title}**  \n{instructor}")
+        st.markdown("<hr class='hr-soft'/>", unsafe_allow_html=True)
+
+    st.markdown("</div>", unsafe_allow_html=True)
     pill_row(["Python", "TensorFlow", "scikit-learn", "Airflow", "LangChain", "LangGraph", "RAG", "AWS", "Power BI", "Tableau", "SAP SAC", "MongoDB", "Full-Stack", "GenAI"])
 
     st.markdown("<br/>", unsafe_allow_html=True)
 
-    # Awards
-    st.markdown("""
-    <div class='nm-card'>
-      <h4>🏆 Awards</h4>
-      <ul style='line-height:1.6;'>
-        <li><b>CRISIL Bright Spark Award</b> — Recognized for outstanding contribution during internship by automating compliance reports and ETL workflows.</li>
-        <li><b>BioDatathon 2025 (SRH Heidelberg & BioMedX)</b> — Participated in an interdisciplinary biomedical data hackathon integrating ML models with health datasets.</li>
-        <li><b>Erasmus+ BIP – Excellence Grade (1)</b> — Achieved top distinction for reinforcement learning project using AWS DeepRacer at FH St. Pölten.</li>
-      </ul>
-    </div>
-    """, unsafe_allow_html=True)
+    # --- Awards ---
+    st.markdown("<div class='nm-card'>", unsafe_allow_html=True)
+    st.markdown("#### 🏆 Awards")
+
+    awards = [
+        ("CRISIL Bright Spark Award", "Recognized for outstanding contribution during internship by automating compliance reports and ETL workflows."),
+        ("BioDatathon 2025 (SRH Heidelberg & BioMedX)", "Participated in an interdisciplinary biomedical data hackathon integrating ML models with health datasets."),
+        ("Erasmus+ BIP – Excellence Grade (1)", "Achieved top distinction for reinforcement learning project using AWS DeepRacer at FH St. Pölten."),
+    ]
+
+    for title, desc in awards:
+        st.markdown(f"**{title}**  \n{desc}")
+        st.markdown("<hr class='hr-soft'/>", unsafe_allow_html=True)
+
+    st.markdown("</div>", unsafe_allow_html=True)
 
 
 # --------------------------------------------------
